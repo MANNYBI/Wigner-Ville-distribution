@@ -1,0 +1,12 @@
+﻿  command_checks.cpp
+F:\Projects\WignerVilleTransform\WignerVilleTransform\command_checks.cpp(81,31): warning C4305: =: усечение из "bool (__cdecl *)(void)" в "bool"
+  command_executes.cpp
+F:\Projects\WignerVilleTransform\WignerVilleTransform\plot.h(27,26): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+F:\Projects\WignerVilleTransform\WignerVilleTransform\plot.h(28,26): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+  command_helps.cpp
+  command_parses.cpp
+  file.cpp
+F:\Projects\WignerVilleTransform\WignerVilleTransform\file.cpp(71,21): warning C4101: msg: неиспользованная локальная переменная
+  main.cpp
+  Создание кода...
+  WignerVilleTransform.vcxproj -> F:\Projects\WignerVilleTransform\Debug\WignerVilleTransform.exe

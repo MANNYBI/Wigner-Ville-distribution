@@ -1,0 +1,20 @@
+﻿  command_checks.cpp
+F:\Projects\WignerVilleTransform\WignerVilleTransform\command_checks.cpp(81,31): warning C4305: =: усечение из "bool (__cdecl *)(void)" в "bool"
+  command_executes.cpp
+  command_helps.cpp
+F:\Projects\WignerVilleTransform\WignerVilleTransform\command_helps.cpp(21,17): warning C4129: i: неизвестная escape-последовательность
+  command_parses.cpp
+  file.cpp
+F:\Projects\WignerVilleTransform\WignerVilleTransform\file.cpp(83,21): warning C4101: msg: неиспользованная локальная переменная
+  main.cpp
+  plot.cpp
+F:\Projects\WignerVilleTransform\WignerVilleTransform\plot.cpp(12,27): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+F:\Projects\WignerVilleTransform\WignerVilleTransform\plot.cpp(13,27): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+  window_functions.cpp
+LINK : warning LNK4075: не учитывается "/INCREMENTAL" из-за спецификации "/LTCG"
+  Создание кода
+  7 of 772 functions ( 0.9%) were compiled, the rest were copied from previous compilation.
+    2 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
+  Создание кода завершено
+  WignerVilleTransform.vcxproj -> F:\Projects\WignerVilleTransform\Release\WignerVilleTransform.exe

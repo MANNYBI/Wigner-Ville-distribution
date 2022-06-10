@@ -4,6 +4,7 @@
 #include <complex>
 #include <fftw3.h>
 #include <vector>
+#include <cmath>
 #include "window_functions.h"
 
 #define RE 0
@@ -44,14 +45,14 @@ public:
 
 	void compute(const int& type, const double& _fs, const int& _nWin, const int& nFreqWin)
 	{
+		fs = _fs;
+		nWin = _nWin;
+
 		int		nData	= srcData.size();
 		int		size	= nData + nWin;
 
 		double* timeWin;
 		double* freqWin;
-
-		fs = _fs;
-		nWin = _nWin;
 
 		if (type != 0)
 		{

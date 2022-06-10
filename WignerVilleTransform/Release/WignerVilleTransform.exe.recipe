@@ -2,12 +2,12 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>F:\Projects\WignerVilleTransform\Release\WignerVilleTransform.exe</FullPath>
+      <FullPath>C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\Release\WignerVilleTransform.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles>
     <ContentFile>
-      <FullPath>F:\Projects\WignerVilleTransform\WignerVilleTransform\icon.ico</FullPath>
+      <FullPath>C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\icon.ico</FullPath>
     </ContentFile>
   </ContentFiles>
   <SatelliteDlls />

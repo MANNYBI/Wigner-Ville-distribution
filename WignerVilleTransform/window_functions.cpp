@@ -1,4 +1,4 @@
-#include "window_functions.h"
+#include <cmath>
 
 bool winKaiser(double*& w, const int& nWin, const double& param)
 {

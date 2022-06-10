@@ -1,0 +1,55 @@
+﻿  command_executes.cpp
+C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\wvt.h(46,1): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\command_executes.cpp(30,41): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+  command_helps.cpp
+C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\wvt.h(46,1): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\command_helps.cpp(21,17): warning C4129: i: неизвестная escape-последовательность
+  command_checks.cpp
+C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\wvt.h(46,1): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\command_checks.cpp(81,31): warning C4305: =: усечение из "bool (__cdecl *)(void)" в "bool"
+C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\command_checks.cpp(140,56): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  command_parses.cpp
+C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\wvt.h(46,1): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  file.cpp
+C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\wvt.h(46,1): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\file.cpp(10,42): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\file.cpp(34,41): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\file.cpp(83,21): warning C4101: msg: неиспользованная локальная переменная
+  main.cpp
+C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\wvt.h(46,1): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  plot.cpp
+C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\wvt.h(46,1): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\plot.cpp(12,27): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\plot.cpp(13,27): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+  window_functions.cpp
+LINK : warning LNK4075: не учитывается "/INCREMENTAL" из-за спецификации "/LTCG"
+command_executes.obj : error LNK2001: неразрешенный внешний символ fftw_malloc.
+command_executes.obj : error LNK2001: неразрешенный внешний символ fftw_plan_dft_1d.
+command_executes.obj : error LNK2001: неразрешенный внешний символ fftw_destroy_plan.
+command_executes.obj : error LNK2001: неразрешенный внешний символ fftw_execute.
+command_executes.obj : error LNK2001: неразрешенный внешний символ fftw_free.
+plot.obj : error LNK2001: неразрешенный внешний символ "public: void __cdecl Dislin::winfnt(char const *)" (?winfnt@Dislin@@QEAAXPEBD@Z).
+plot.obj : error LNK2001: неразрешенный внешний символ "public: void __cdecl Dislin::winapp(char const *)" (?winapp@Dislin@@QEAAXPEBD@Z).
+plot.obj : error LNK2001: неразрешенный внешний символ "public: void __cdecl Dislin::titlin(char const *,int)" (?titlin@Dislin@@QEAAXPEBDH@Z).
+plot.obj : error LNK2001: неразрешенный внешний символ "public: void __cdecl Dislin::title(void)" (?title@Dislin@@QEAAXXZ).
+plot.obj : error LNK2001: неразрешенный внешний символ "public: void __cdecl Dislin::scrmod(char const *)" (?scrmod@Dislin@@QEAAXPEBD@Z).
+plot.obj : error LNK2001: неразрешенный внешний символ "public: void __cdecl Dislin::paghdr(char const *,char const *,int,int)" (?paghdr@Dislin@@QEAAXPEBD0HH@Z).
+plot.obj : error LNK2001: неразрешенный внешний символ "public: void __cdecl Dislin::pagera(void)" (?pagera@Dislin@@QEAAXXZ).
+plot.obj : error LNK2001: неразрешенный внешний символ "public: void __cdecl Dislin::name(char const *,char const *)" (?name@Dislin@@QEAAXPEBD0@Z).
+plot.obj : error LNK2001: неразрешенный внешний символ "public: void __cdecl Dislin::metafl(char const *)" (?metafl@Dislin@@QEAAXPEBD@Z).
+plot.obj : error LNK2001: неразрешенный внешний символ "public: void __cdecl Dislin::labdig(int,char const *)" (?labdig@Dislin@@QEAAXHPEBD@Z).
+plot.obj : error LNK2001: неразрешенный внешний символ "public: void __cdecl Dislin::intax(void)" (?intax@Dislin@@QEAAXXZ).
+plot.obj : error LNK2001: неразрешенный внешний символ "public: void __cdecl Dislin::height(int)" (?height@Dislin@@QEAAXH@Z).
+plot.obj : error LNK2001: неразрешенный внешний символ "public: void __cdecl Dislin::graf3(double,double,double,double,double,double,double,double,double,double,double,double)" (?graf3@Dislin@@QEAAXNNNNNNNNNNNN@Z).
+plot.obj : error LNK2001: неразрешенный внешний символ "public: void __cdecl Dislin::errmod(char const *,char const *)" (?errmod@Dislin@@QEAAXPEBD0@Z).
+plot.obj : error LNK2001: неразрешенный внешний символ "public: void __cdecl Dislin::disini(void)" (?disini@Dislin@@QEAAXXZ).
+plot.obj : error LNK2001: неразрешенный внешний символ "public: void __cdecl Dislin::disfin(void)" (?disfin@Dislin@@QEAAXXZ).
+plot.obj : error LNK2001: неразрешенный внешний символ "public: void __cdecl Dislin::crvmat(double const *,int,int,int,int)" (?crvmat@Dislin@@QEAAXPEBNHHHH@Z).
+plot.obj : error LNK2001: неразрешенный внешний символ "public: void __cdecl Dislin::colran(int,int)" (?colran@Dislin@@QEAAXHH@Z).
+plot.obj : error LNK2001: неразрешенный внешний символ "public: void __cdecl Dislin::chacod(char const *)" (?chacod@Dislin@@QEAAXPEBD@Z).
+plot.obj : error LNK2001: неразрешенный внешний символ "public: void __cdecl Dislin::axspos(int,int)" (?axspos@Dislin@@QEAAXHH@Z).
+plot.obj : error LNK2001: неразрешенный внешний символ "public: void __cdecl Dislin::ax3len(int,int,int)" (?ax3len@Dislin@@QEAAXHHH@Z).
+plot.obj : error LNK2001: неразрешенный внешний символ "public: void __cdecl Dislin::autres(int,int)" (?autres@Dislin@@QEAAXHH@Z).
+plot.obj : error LNK2001: неразрешенный внешний символ "public: __cdecl Dislin::~Dislin(void)" (??1Dislin@@QEAA@XZ).
+plot.obj : error LNK2001: неразрешенный внешний символ "public: __cdecl Dislin::Dislin(void)" (??0Dislin@@QEAA@XZ).
+C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\x64\Release\WignerVilleTransform.exe : fatal error LNK1120: неразрешенных внешних элементов: 29

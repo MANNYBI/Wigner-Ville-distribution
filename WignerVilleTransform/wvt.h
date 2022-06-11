@@ -43,10 +43,10 @@ public:
 		minAmplitude	=	0;
 	}
 
-	void compute(const int& type, const double& _fs, const int& _nWin, const int& nFreqWin)
+	void compute(const int& type, const double& fs, const int& nWin, const int& nFreqWin)
 	{
-		fs = _fs;
-		nWin = _nWin;
+		this->fs = fs;
+		this->nWin = nWin;
 
 		int		nData	= srcData.size();
 		int		size	= nData + nWin;
@@ -63,8 +63,10 @@ public:
 		fftw_complex* pseudoComplexSrc = (fftw_complex*)fftw_malloc(sizeof(fftw_complex) * size);
 		fftw_complex* complexSrc = (fftw_complex*)fftw_malloc(sizeof(fftw_complex) * size);
 
+		int pseudoFs = size;
+
 		createComplexRe0(pseudoComplexSrc, nData, nWin);
-		hilbertTransform(size, pseudoComplexSrc, complexSrc, size);
+		hilbertTransform(size, pseudoComplexSrc, complexSrc, pseudoFs);
 		fftw_free(pseudoComplexSrc);
 
 		fftw_complex* complexSrcConj = (fftw_complex*)fftw_malloc(sizeof(fftw_complex) * size);
@@ -83,16 +85,14 @@ public:
 			{
 				for (int j = 0; j <= nWin - 2; j++)
 				{
-					//TODO: ѕопробовать перегрузить операторы 
-					tempWVT[i][j][RE] = complexSrc[j + i][RE] * complexSrcConj[nWin + i - j - 2][RE] - complexSrc[i + j][IM] * complexSrcConj[nWin + i - j - 2][IM];
-					tempWVT[i][j][IM] = complexSrc[j + i][RE] * complexSrcConj[nWin + i - j - 2][IM] + complexSrc[i + j][IM] * complexSrcConj[nWin + i - j - 2][RE];
+					complexMultiply(tempWVT[i][j], complexSrc[j + i], complexSrcConj[nWin + i - j - 2]);
+
 				}
-				tempWVT[i][nWin - 1][RE] = complexSrc[nWin + i - 1][RE] * complexSrcConj[nWin + i - 1][RE] - complexSrc[nWin + i - 1][IM] * complexSrcConj[nWin + i - 1][IM];
-				tempWVT[i][nWin - 1][IM] = complexSrc[nWin + i - 1][RE] * complexSrcConj[nWin + i - 1][IM] + complexSrc[nWin + i - 1][IM] * complexSrcConj[nWin + i - 1][RE];
+				complexMultiply(tempWVT[i][nWin - 1], complexSrc[nWin + i - 1], complexSrcConj[nWin + i - 1]);
 
 				if (type != 0)
 				{
-					timeFiltering(timeWin, *&tempWVT[i]);
+					timeFiltering(timeWin, *&tempWVT[i], nWin);
 				}
 
 				circShift((*&tempWVT[i]), nWin / 2 - 1, nWin);
@@ -101,8 +101,15 @@ public:
 			{
 				for (int j = 0; j <= nWin - 1; j++)
 				{
-					//cout << "Nothing" << "\n";
+					complexMultiply(tempWVT[i][j], complexSrc[j + i], complexSrcConj[nWin + i - j - 1]);
 				}
+
+				if (type != 0)
+				{
+					timeFiltering(timeWin, *&tempWVT[i], nWin);
+				}
+
+				circShift((*&tempWVT[i]), (nWin - 1) / 2, nWin);
 			}
 		}
 
@@ -113,7 +120,7 @@ public:
 		{
 			freqWin = (double*)_malloca(sizeof(double) * nTimeWins);
 			creatFreqWin(freqWin, nTimeWins, 20);
-			freqFiltering(freqWin, tempWVT);
+			freqFiltering(freqWin, tempWVT, nTimeWins, nWin);
 		}
 
 		for (int i = 0; i <= nTimeWins - 1; i++)
@@ -155,6 +162,13 @@ public:
 
 		isComputed = true;
 	}
+
+	inline void complexMultiply(fftw_complex& out, const fftw_complex& cmplx1, const fftw_complex& cmplx2)
+	{
+		out[RE] = cmplx1[RE] * cmplx2[RE] - cmplx1[IM] * cmplx2[IM];
+		out[IM] = cmplx1[RE] * cmplx2[IM] + cmplx1[IM] * cmplx2[RE];
+
+	}
 private:
 	void createComplexRe0(fftw_complex*& complexDataOut, const int& nData, const int& nWin)
 	{
@@ -194,7 +208,7 @@ private:
 		}
 	}
 
-	void hilbertTransform(const int& nData, fftw_complex*& dataIn, fftw_complex*& dataOut, const double& fs)
+	void hilbertTransform(const int& nData, fftw_complex*& dataIn, fftw_complex*& dataOut, const double& normalizingFs)
 	{
 		fftw_plan planForward = fftw_plan_dft_1d(nData, dataIn, dataOut, FFTW_FORWARD, FFTW_ESTIMATE);
 		fftw_execute(planForward);
@@ -230,8 +244,8 @@ private:
 
 		for (int i = 0; i <= nData - 1; i++)
 		{
-			dataOut[i][RE] /= fs;
-			dataOut[i][IM] /= fs;
+			dataOut[i][RE] /= normalizingFs;
+			dataOut[i][IM] /= normalizingFs;
 		}
 	}
 
@@ -240,7 +254,7 @@ private:
 		std::rotate(dataIn, dataIn + K, dataIn + size);
 	}
 
-	void timeFiltering(double*& w, fftw_complex*& data)
+	void timeFiltering(double*& w, fftw_complex*& data, const int& nWin)
 	{
 		for (int i = 0; i <= nWin - 1; i++)
 		{
@@ -276,11 +290,9 @@ private:
 		{
 			w[i] = tempW[i - N];
 		}
-
-		//free(tempW);
 	}
 
-	void freqFiltering(double*& w, fftw_complex**& data)
+	void freqFiltering(double*& w, fftw_complex**& data, const int& nTimeWins, const int& nWin)
 	{
 		fftw_complex* tempColumn = (fftw_complex*)fftw_malloc(sizeof(fftw_complex) * nTimeWins);
 
@@ -308,8 +320,8 @@ private:
 
 			for (int j = 0; j <= nTimeWins - 1; j++)
 			{
-				data[j][i][RE] = tempColumn[j][RE] / fs;
-				data[j][i][IM] = tempColumn[j][IM] / fs;
+				data[j][i][RE] = tempColumn[j][RE] / nTimeWins;
+				data[j][i][IM] = tempColumn[j][IM] / nTimeWins;
 			}
 		}
 
@@ -318,4 +330,6 @@ private:
 
 };
 
+#undef RE
+#undef IM
 #endif // !WVT_H

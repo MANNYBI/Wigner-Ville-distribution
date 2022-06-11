@@ -86,8 +86,6 @@ inline void openingCommandParse(vector <string>& commandSplitted, OpeningOpts& o
 inline void plottingCommandParse(vector <string>& commandSplitted, PlottingOpts& plottingOpts, OpeningOpts& openingOpts, ComputingOpts& computingOpts)
 {
 	plottingOpts.filename = openingOpts.filename;
-	plottingOpts.nTimeWindow = computingOpts.nTimeWindow;
-	plottingOpts.fs = computingOpts.fs;
 	plottingOpts.type = computingOpts.type;
 }
 

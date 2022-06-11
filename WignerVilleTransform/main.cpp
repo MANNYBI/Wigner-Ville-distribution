@@ -8,7 +8,7 @@ void programStart()
 	system("title Wigner-Ville transform");
 
 	cout << "Wigner-Ville transform" << " [Version 1.0]" << "\n";
-	cout << "(c) 2022" << "\n";
+	cout << "(c) June, 2022" << "\n";
 	cout << "Type ? for help" << "\n" << "\n";
 }
 

@@ -30,8 +30,6 @@ struct OpeningOpts
 struct PlottingOpts
 {
 	int		type;
-	double	fs;
-	int		nTimeWindow;
 	STRING	filename;
 
 	STRING	scrmod;
@@ -39,7 +37,7 @@ struct PlottingOpts
 	STRING	winfnt;
 	int		colormap[2];
 
-	PlottingOpts() : type(0), fs(48000), nTimeWindow(2), filename(""), scrmod("auto"), metafl("xwin"),
+	PlottingOpts() : type(0), filename(""), scrmod("auto"), metafl("xwin"),
 					 winfnt("Courier New"), colormap{1, 220} {}
 };
 

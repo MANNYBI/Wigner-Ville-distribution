@@ -1,7 +1,7 @@
 #include "discpp.h"
 #include "plot.h"
 
-using namespace std;
+//using namespace std;
 
 void heatmapPlot(WVT& wvt, PlottingOpts& plottingOpts)
 {
@@ -9,12 +9,9 @@ void heatmapPlot(WVT& wvt, PlottingOpts& plottingOpts)
 
     int     timeAxis;
     int     freqAxis = wvt.nWin;
-    int     _maxAmplitude = wvt.maxAmplitude;
-    int     _minAmplitude = wvt.minAmplitude;
-    double  stepAmplitude = (abs(wvt.maxAmplitude) + abs(wvt.minAmplitude)) / 5;
     char    temp[50];
 
-    if (plottingOpts.fs != 1)
+    if (wvt.fs != 1)
     {
         timeAxis = wvt.nTimeWins;
     }
@@ -48,11 +45,11 @@ void heatmapPlot(WVT& wvt, PlottingOpts& plottingOpts)
         break;
     }
 
-    if (plottingOpts.fs != 1)
+    if (wvt.fs != 1)
     {
-        sprintf(temp, "Sampling frequency: %.*f\n Hz", 1, plottingOpts.fs);
+        sprintf(temp, "Sampling frequency: %.*f\n Hz", 1, wvt.fs);
         g.titlin(temp, 3);
-        sprintf(temp, "FFT length: %d\n samples", plottingOpts.nTimeWindow);
+        sprintf(temp, "FFT length: %d\n samples", wvt.nWin);
         g.titlin(temp, 4);
 
         g.name("Time, sec", "x");
@@ -60,7 +57,7 @@ void heatmapPlot(WVT& wvt, PlottingOpts& plottingOpts)
     }
     else
     {
-        sprintf(temp, "FFT length: %d\n samples", plottingOpts.nTimeWindow);
+        sprintf(temp, "FFT length: %d\n samples", wvt.nWin);
         g.titlin(temp, 3);
 
         g.name("Samples", "x");
@@ -79,7 +76,7 @@ void heatmapPlot(WVT& wvt, PlottingOpts& plottingOpts)
     g.labdig(1, "y");
 
     //    From dislin manual
-    //    void graf3(float xa, float xe, floatxor, float xstp, float ya, float ye, float yor, float ystp, float za, float ze, float zor, float zstp);
+    //    void graf3(float xa, float xe, float xor, float xstp, float ya, float ye, float yor, float ystp, float za, float ze, float zor, float zstp);
     //
     //    XA, XE	are the lowerand upper limits of the X - axis.
     //    XOR, XSTP	are the first X - axis label and the step between labels.
@@ -88,14 +85,26 @@ void heatmapPlot(WVT& wvt, PlottingOpts& plottingOpts)
     //    ZA, ZE	are the lowerand upper limits of the Z - axis.
     //    ZOR, ZSTP	are the first Z - axis label and the step between labels.*/
 
-    if (plottingOpts.fs != 1)
+    double  XA     = 0.0;
+    double  XE     = (timeAxis / wvt.fs);
+    double  XOR    = 0.0;
+    double  XSTP   = (0.2 * timeAxis / wvt.fs);
+    double  YA     = 0;
+    double  YE     = (wvt.fs / 2);
+    double  YOR    = 0.0;
+    double  YSTP   = (0.1 * wvt.fs / 2);
+    int     ZA     = wvt.minAmplitude;
+    int     ZE     = wvt.maxAmplitude;
+    int     ZOR    = wvt.minAmplitude;
+    double  ZSTP   = (abs(wvt.maxAmplitude) + abs(wvt.minAmplitude)) / 5;
+
+    if (wvt.fs == 1)
     {
-        g.graf3(0.0, (timeAxis / wvt.fs), 0.0, (0.2 * timeAxis / wvt.fs), 0.0, (wvt.fs / 2), 0.0, (0.1 * wvt.fs / 2), wvt.minAmplitude, _maxAmplitude, _minAmplitude, stepAmplitude);
+        YE = wvt.fs;
+        YSTP = (0.1 * wvt.fs);
     }
-    else
-    {
-        g.graf3(0.0, (timeAxis / wvt.fs), 0.0, (0.2 * timeAxis / wvt.fs), 0.0, (wvt.fs), 0.0, (0.1 * wvt.fs), wvt.minAmplitude, _maxAmplitude, _minAmplitude, stepAmplitude);
-    }
+
+    g.graf3(XA, XE, XOR, XSTP, YA, YE, YOR, YSTP, ZA, ZE, ZOR, ZSTP);
 
     g.crvmat(wvt.wvtData, timeAxis, freqAxis, 2, 2);
 

@@ -13,8 +13,8 @@ C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\plo
 C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\plot.cpp(98,20): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
 LINK : warning LNK4075: не учитывается "/INCREMENTAL" из-за спецификации "/LTCG"
   Создание кода
-  2 of 772 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
+  4 of 773 functions ( 0.5%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    2 functions had inline decision re-evaluated but remain unchanged
+    1 functions had inline decision re-evaluated but remain unchanged
   Создание кода завершено
   WignerVilleTransform.vcxproj -> C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\Release\WignerVilleTransform.exe

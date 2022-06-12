@@ -10,25 +10,27 @@ void getHelp()
 	cout << "	" << "OPEN	" << "Opens a file with input data" << "\n";
 	cout << "	" << "PLOT	" << "Plots the transform result" << "\n";
 	cout << "	" << "PWVT	" << "Computes the Wigner-Ville transform, " << "\n";
-	cout << "	" << "		" << "using a time window function " << "\n";
+	cout << "	" << "	" << "using a time window function " << "\n";
 	cout << "	" << "SAVE	" << "Saves the transform result" << "\n";
 	cout << "	" << "SPWVT	" << "Computes the Wigner-Ville transform, using a time" << "\n";
-	cout << "	" << "		" << "and frequency window function" << "\n";
+	cout << "	" << "	" << "and frequency window function" << "\n";
 	cout << "	" << "WVT	" << "Computes the Wigner-Ville transform" << "\n";
 	cout << "\n";
 
 	cout << "Example of using the program" << "\n";
-	cout << "	" << "1. Add the input data file to the folder '(progarammDirectory)\input\'" << "\n";
+	cout << "	" << "1. Add the input data file to the folder '(progaramm directory)\input\'" << "\n";
 	cout << "	" << "2. Run the programm" << "\n";
 	cout << "	" << "Next, use the commands:" << "\n";
 	cout << "	" << "3. open '(your filename).txt'" << "\n";
 	cout << "	" << "4. wvt 1" << "\n";
 	cout << "	" << "5. plot" << "\n";
 	cout << "Notes" << "\n";
-	cout << "	" << "By using command 'wvt 1' you got the normalized Wigner-Ville transform." << "\n";
-	cout << "	" << "You can use 'pwvt' or 'spwvt' to get other types of transform." << "\n";
+	cout << "	" << "By using command 'wvt 1' you got the normalized Wigner-Ville transform." << "\n\n";
+	cout << "	" << "You can use 'pwvt' or 'spwvt' to get other types of transform." << "\n\n";
 	cout << "	" << "If you want to get not normalized result, you should change" << "\n";
-	cout << "	" << "parameter <fs> from 1 to your own." << "\n";
+	cout << "	" << "parameter <fs> from 1 to your own." << "\n\n";
+	cout << "	" << "You can open data files not only from 'input\' folder." << "\n";
+	cout << "	" << "To do this, use 'open (file path)\\(file name).txt'" << "\n";
 
 }
 

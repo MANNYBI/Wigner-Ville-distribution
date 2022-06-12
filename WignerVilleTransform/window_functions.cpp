@@ -1,6 +1,6 @@
 #include <cmath>
 
-bool winKaiser(double*& w, const int& nWin, const double& param)
+void winKaiser(double*& w, const int& nWin, const double& param)
 {
 	double x;
 	double y;
@@ -24,6 +24,4 @@ bool winKaiser(double*& w, const int& nWin, const double& param)
 		num = __std_smf_cyl_bessel_i(0, y);
 		w[i] = num / den;
 	}
-
-	return true;
 }

@@ -24,12 +24,12 @@ public:
 
 	WVT()
 	{
-		isComputed = false;
-		nTimeWins = 0;
-		nWin = 0;
-		fs = 0;
-		maxAmplitude = 0;
-		minAmplitude = 0;
+		isComputed		= false;
+		nTimeWins		= 0;
+		nWin			= 0;
+		fs				= 0;
+		maxAmplitude	= 0;
+		minAmplitude	= 0;
 	}
 
 	void clear()
@@ -45,19 +45,20 @@ public:
 
 	void compute(const int& type, const double& fs, const int& nWin, const int& nFreqWin)
 	{
-		this->fs = fs;
+		this->fs   = fs;
 		this->nWin = nWin;
 
-		int		nData	= srcData.size();
-		int		size	= nData + nWin;
+		int	nData = srcData.size();
+		int	size  = nData + nWin;
 
-		double* timeWin;
-		double* freqWin;
+		double* timeWinCoeffs;
+		double* freqWinCoeffs;
 
+		//Применение временнОго окна, если вычисляется (S)PWVT
 		if (type != 0)
 		{
-			timeWin = (double*)_malloca(sizeof(double) * nWin);
-			winKaiser(timeWin, nWin, 20);
+			timeWinCoeffs = (double*)_malloca(sizeof(double) * nWin);
+			createTimeWin(timeWinCoeffs, nWin, 20, winKaiser);
 		}
 
 		fftw_complex* pseudoComplexSrc = (fftw_complex*)fftw_malloc(sizeof(fftw_complex) * size);
@@ -81,7 +82,7 @@ public:
 
 		for (int i = 0; i <= nTimeWins - 1; i++)
 		{
-			if (nData % 2 == 0)
+			if (nWin % 2 == 0)
 			{
 				for (int j = 0; j <= nWin - 2; j++)
 				{
@@ -90,9 +91,10 @@ public:
 				}
 				complexMultiply(tempWVT[i][nWin - 1], complexSrc[nWin + i - 1], complexSrcConj[nWin + i - 1]);
 
+				//Умножение сигнала на оконную функцию для (S)PWVT
 				if (type != 0)
 				{
-					timeFiltering(timeWin, *&tempWVT[i], nWin);
+					timeFiltering(timeWinCoeffs, *&tempWVT[i], nWin);
 				}
 
 				circShift((*&tempWVT[i]), nWin / 2 - 1, nWin);
@@ -104,9 +106,10 @@ public:
 					complexMultiply(tempWVT[i][j], complexSrc[j + i], complexSrcConj[nWin + i - j - 1]);
 				}
 
+				//Умножение сигнала на оконную функцию для (S)PWVT
 				if (type != 0)
 				{
-					timeFiltering(timeWin, *&tempWVT[i], nWin);
+					timeFiltering(timeWinCoeffs, *&tempWVT[i], nWin);
 				}
 
 				circShift((*&tempWVT[i]), (nWin - 1) / 2, nWin);
@@ -116,11 +119,12 @@ public:
 		fftw_free(complexSrcConj);
 		fftw_free(complexSrc);
 
+		//Применение частотного окна, если вычисляется SPWVT
 		if (type == 2)
 		{
-			freqWin = (double*)_malloca(sizeof(double) * nTimeWins);
-			creatFreqWin(freqWin, nTimeWins, 20);
-			freqFiltering(freqWin, tempWVT, nTimeWins, nWin);
+			freqWinCoeffs = (double*)_malloca(sizeof(double) * nTimeWins);
+			creatFreqWin(freqWinCoeffs, nTimeWins, 20, winKaiser);
+			freqFiltering(freqWinCoeffs, tempWVT, nTimeWins, nWin);
 		}
 
 		for (int i = 0; i <= nTimeWins - 1; i++)
@@ -161,13 +165,6 @@ public:
 		fftw_free(tempWVT);
 
 		isComputed = true;
-	}
-
-	inline void complexMultiply(fftw_complex& out, const fftw_complex& cmplx1, const fftw_complex& cmplx2)
-	{
-		out[RE] = cmplx1[RE] * cmplx2[RE] - cmplx1[IM] * cmplx2[IM];
-		out[IM] = cmplx1[RE] * cmplx2[IM] + cmplx1[IM] * cmplx2[RE];
-
 	}
 private:
 	void createComplexRe0(fftw_complex*& complexDataOut, const int& nData, const int& nWin)
@@ -254,6 +251,13 @@ private:
 		std::rotate(dataIn, dataIn + K, dataIn + size);
 	}
 
+	inline void complexMultiply(fftw_complex& out, const fftw_complex& cmplx1, const fftw_complex& cmplx2)
+	{
+		out[RE] = cmplx1[RE] * cmplx2[RE] - cmplx1[IM] * cmplx2[IM];
+		out[IM] = cmplx1[RE] * cmplx2[IM] + cmplx1[IM] * cmplx2[RE];
+
+	}
+
 	void timeFiltering(double*& w, fftw_complex*& data, const int& nWin)
 	{
 		for (int i = 0; i <= nWin - 1; i++)
@@ -263,7 +267,7 @@ private:
 		}
 	}
 
-	void creatFreqWin(double*& w, const int& nTimeWins, const double& param)
+	void creatFreqWin(double*& w, const int& nTimeWins, const double& param, void (*windowFunction)(double*&, const int&, const double&))
 	{
 		int N;
 
@@ -277,7 +281,8 @@ private:
 		}
 
 		double* tempW = (double*)_malloca(sizeof(double) * N);
-		winKaiser(tempW, N, param);
+		//winKaiser(tempW, N, param);
+		windowFunction(tempW, N, param);
 		std::rotate(tempW, tempW + N / 2 - 1, tempW + N);
 
 
@@ -290,6 +295,11 @@ private:
 		{
 			w[i] = tempW[i - N];
 		}
+	}
+
+	void createTimeWin(double*& w, const int& nWin, const double& param, void (*windowFunction)(double*&, const int&, const double&))
+	{
+		windowFunction(w, nWin, param);
 	}
 
 	void freqFiltering(double*& w, fftw_complex**& data, const int& nTimeWins, const int& nWin)
@@ -327,7 +337,6 @@ private:
 
 		fftw_free(tempColumn);
 	}
-
 };
 
 #undef RE

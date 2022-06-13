@@ -133,7 +133,7 @@
       <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
       <LanguageStandard_C>stdc11</LanguageStandard_C>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>D:\dislin;F:\Projects\WignerVilleTransform\WignerVilleTransform\fftw-3.0.1-w32-pl1</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\dislin;C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\fftw-3.0.1-w32-pl1</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_SILENCE_CXX17_C_HEADER_DEPRECATION_WARNING</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <OmitFramePointers />
@@ -145,8 +145,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <HeapReserveSize>
       </HeapReserveSize>
-      <AdditionalDependencies>d:\dislin\discpp.lib;f:\Projects\WignerVilleTransform\WignerVilleTransform\fftw-3.0.1-w32-pl1\fftw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>D:\dislin;F:\Projects\WignerVilleTransform\WignerVilleTransform\fftw-3.0.1-w32-pl1</AdditionalLibraryDirectories>
+      <AdditionalDependencies>c:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\dislin\discpp.lib;c:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\fftw-3.0.1-w32-pl1\fftw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\dislin;C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\fftw-3.0.1-w32-pl1</AdditionalLibraryDirectories>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
     </Link>
   </ItemDefinitionGroup>
@@ -162,7 +162,7 @@
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <LanguageStandard_C>stdc11</LanguageStandard_C>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>D:\dislin;C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\fftw-3.0.1-w32-pl1</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\dislin;C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\fftw-3.0.1-w32-pl1</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_SILENCE_CXX17_C_HEADER_DEPRECATION_WARNING</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
@@ -173,8 +173,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <HeapReserveSize>
       </HeapReserveSize>
-      <AdditionalDependencies>d:\dislin\discpp.lib;c:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\fftw-3.0.1-w32-pl1\fftw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>D:\dislin;C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\fftw-3.0.1-w32-pl1</AdditionalLibraryDirectories>
+      <AdditionalDependencies>c:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\dislin\discpp.lib;c:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\fftw-3.0.1-w32-pl1\fftw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\dislin;C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\fftw-3.0.1-w32-pl1</AdditionalLibraryDirectories>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
     </Link>
   </ItemDefinitionGroup>
@@ -187,7 +187,7 @@
       <Optimization>Disabled</Optimization>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
-      <AdditionalIncludeDirectories>D:\dislin;F:\Projects\WignerVilleTransform\WignerVilleTransform\fftw-3.0.1-w32-pl1</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\dislin;C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\fftw-3.0.1-w32-pl1</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
@@ -197,8 +197,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <HeapReserveSize>
       </HeapReserveSize>
-      <AdditionalDependencies>d:\dislin\discpp.lib;f:\Projects\WignerVilleTransform\WignerVilleTransform\fftw-3.0.1-w32-pl1\fftw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>D:\dislin;F:\Projects\WignerVilleTransform\WignerVilleTransform\fftw-3.0.1-w32-pl1</AdditionalLibraryDirectories>
+      <AdditionalDependencies>c:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\dislin\discpp.lib;c:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\fftw-3.0.1-w32-pl1\fftw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\dislin;C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\fftw-3.0.1-w32-pl1</AdditionalLibraryDirectories>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
     </Link>
   </ItemDefinitionGroup>
@@ -213,7 +213,7 @@
       <Optimization>MaxSpeed</Optimization>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-      <AdditionalIncludeDirectories>D:\dislin;C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\fftw-3.0.1-w32-pl1</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\dislin;C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\fftw-3.0.1-w32-pl1</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
@@ -225,8 +225,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <HeapReserveSize>
       </HeapReserveSize>
-      <AdditionalDependencies>d:\dislin\discpp.lib;c:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\fftw-3.0.1-w32-pl1\fftw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>D:\dislin;C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\fftw-3.0.1-w32-pl1</AdditionalLibraryDirectories>
+      <AdditionalDependencies>c:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\dislin\discpp.lib;c:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\fftw-3.0.1-w32-pl1\fftw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\dislin;C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\fftw-3.0.1-w32-pl1</AdditionalLibraryDirectories>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
     </Link>
   </ItemDefinitionGroup>

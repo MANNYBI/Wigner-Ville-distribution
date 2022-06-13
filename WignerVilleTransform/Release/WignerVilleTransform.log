@@ -1,20 +1,7 @@
-﻿  command_checks.cpp
-C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\command_checks.cpp(81,31): warning C4305: =: усечение из "bool (__cdecl *)(void)" в "bool"
-  command_executes.cpp
-  command_helps.cpp
-C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\command_helps.cpp(21,17): warning C4129: i: неизвестная escape-последовательность
-  command_parses.cpp
-  file.cpp
-C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\file.cpp(83,21): warning C4101: msg: неиспользованная локальная переменная
-  main.cpp
-  plot.cpp
-C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\plot.cpp(96,20): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
-C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\plot.cpp(97,20): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
-C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\WignerVilleTransform\plot.cpp(98,20): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
-LINK : warning LNK4075: не учитывается "/INCREMENTAL" из-за спецификации "/LTCG"
+﻿LINK : warning LNK4075: не учитывается "/INCREMENTAL" из-за спецификации "/LTCG"
   Создание кода
-  4 of 773 functions ( 0.5%) were compiled, the rest were copied from previous compilation.
+  737 of 773 functions (95.3%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+    7 functions had inline decision re-evaluated but remain unchanged
   Создание кода завершено
   WignerVilleTransform.vcxproj -> C:\Users\dda\Documents\GitHub\Wigner-Ville-distribution\Release\WignerVilleTransform.exe

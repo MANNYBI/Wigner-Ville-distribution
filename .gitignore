@@ -366,3 +366,7 @@ WignerVilleTransform/WignerVilleTransform.vcxproj
 *.vcxproj
 WignerVilleTransform/WignerVilleTransform.vcxproj
 *.vcxproj
+*.obj
+*.db
+*.ipch
+*.tlog
